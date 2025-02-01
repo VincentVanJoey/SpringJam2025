@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bss26wfxidfm8"]
+
+[ext_resource type="Script" path="res://Scenes/how_to_play.gd" id="1_vglhc"]
+
+[node name="how_to_play" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vglhc")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ReturnButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Return to Main Menu"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 32.0
+offset_right = 171.0
+offset_bottom = 162.0
+text = "Movement - Left Stick
+Aim - Right Stick
+Shoot - B/Triggers
+Jump - X/Y
+Pause - Start"
+
+[connection signal="pressed" from="GridContainer/ReturnButton" to="." method="_on_return_button_pressed"]

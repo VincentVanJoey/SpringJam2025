@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqmwhn3dtx7dx"]
+
+[ext_resource type="Script" path="res://Scenes/level_select.gd" id="1_5to3y"]
+
+[node name="level_select" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5to3y")
+
+[node name="Fire" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 0
+offset_left = -5.0
+offset_top = 1.0
+offset_right = 1186.0
+offset_bottom = 731.0
+
+[node name="Guys" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 309.0
+offset_right = 798.0
+offset_bottom = 732.0
+expand_mode = 1
+
+[node name="GridContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 400.0
+offset_top = 176.0
+offset_right = 775.0
+offset_bottom = 309.0
+
+[node name="DebugButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../ReturnButton")
+text = "Debug Stage"
+
+[node name="FirstLevelButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Stage 1"
+
+[node name="SecondLevelButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Stage 2"
+
+[node name="ReturnButton" type="Button" parent="GridContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../DebugButton")
+text = "Return to Menu"
+
+[connection signal="pressed" from="GridContainer/DebugButton" to="GridContainer/DebugButton" method="_on_DebugButton_pressed"]
+[connection signal="pressed" from="GridContainer/FirstLevelButton" to="." method="_on_first_level_button_pressed"]
+[connection signal="pressed" from="GridContainer/SecondLevelButton" to="." method="_on_second_level_button_pressed"]
+[connection signal="pressed" from="GridContainer/ReturnButton" to="." method="_on_return_button_pressed"]

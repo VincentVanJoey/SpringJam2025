@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Settings" load_steps=2 format=3 uid="uid://c8iv0erjaakj0"]
+
+[ext_resource type="Script" path="res://Settings.gd" id="1_lxh1t"]
+
+[resource]
+script = ExtResource("1_lxh1t")
+master_Volume = 1.0
