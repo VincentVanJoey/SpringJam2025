@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4kfdft4fnbgq"]
+
+[ext_resource type="Script" path="res://Scenes/level_2.gd" id="1_8pdim"]
+[ext_resource type="PackedScene" uid="uid://bd3ep03g4ey0c" path="res://Character/Player.tscn" id="1_t8rmg"]
+[ext_resource type="PackedScene" uid="uid://1wr7k5ipce27" path="res://Character/Bullet.tscn" id="2_ikcqb"]
+[ext_resource type="PackedScene" uid="uid://upl2f1wfsnce" path="res://Scenes/pause_menu.tscn" id="3_afe08"]
+[ext_resource type="Texture2D" uid="uid://0q8spngg61hu" path="res://Art/New Platform.png" id="4_hik45"]
+[ext_resource type="AudioStream" uid="uid://vvdhhqctiwnp" path="res://Music/FIGHTING_START.wav" id="6_5lw1w"]
+[ext_resource type="AudioStream" uid="uid://bdt2g6x7001ia" path="res://Music/FIGHTING.wav" id="7_qtmkn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ymiad"]
+size = Vector2(1183, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfttk"]
+size = Vector2(20, 625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vg4p"]
+size = Vector2(534.5, 3)
+
+[node name="level_2" type="Node2D"]
+script = ExtResource("1_8pdim")
+
+[node name="PlayerGuy" parent="." instance=ExtResource("1_t8rmg")]
+position = Vector2(173, 550)
+bullet = ExtResource("2_ikcqb")
+
+[node name="PlayerGuy2" parent="." instance=ExtResource("1_t8rmg")]
+position = Vector2(991, 550)
+bullet = ExtResource("2_ikcqb")
+playerindex = 2
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(583.5, 640.5)
+shape = SubResource("RectangleShape2D_ymiad")
+debug_color = Color(0.815686, 0.321569, 0.631373, 0.419608)
+
+[node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = -10.0
+offset_top = 610.0
+offset_right = 1175.0
+offset_bottom = 665.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_afe08")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 577.0
+offset_top = 325.0
+offset_right = 577.0
+offset_bottom = 325.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+
+[node name="Left" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+position = Vector2(0, 302.5)
+shape = SubResource("RectangleShape2D_yfttk")
+
+[node name="ColorRect" type="ColorRect" parent="Left"]
+offset_left = -6.0
+offset_top = -3.0
+offset_right = 11.0
+offset_bottom = 652.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Right" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+position = Vector2(1152, 299)
+shape = SubResource("RectangleShape2D_yfttk")
+
+[node name="ColorRect" type="ColorRect" parent="Right"]
+offset_left = 1143.0
+offset_top = -45.0
+offset_right = 1160.0
+offset_bottom = 610.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="NewPlatform" type="Sprite2D" parent="StaticBody2D"]
+z_index = -1
+position = Vector2(581, 472)
+scale = Vector2(1.08, 0.18)
+texture = ExtResource("4_hik45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(582.75, 459.5)
+shape = SubResource("RectangleShape2D_1vg4p")
+one_way_collision = true
+
+[node name="FIGHTING_start" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_5lw1w")
+
+[node name="FIGHTING" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_qtmkn")

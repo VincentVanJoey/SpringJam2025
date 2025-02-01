@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://1wr7k5ipce27"]
+
+[ext_resource type="Script" path="res://Character/Bullet.gd" id="1_031gc"]
+[ext_resource type="Texture2D" uid="uid://bhnbo7em43msi" path="res://Art/blue-projectile.png" id="2_8xhhs"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1adig"]
+atlas = ExtResource("2_8xhhs")
+region = Rect2(0, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyfv3"]
+atlas = ExtResource("2_8xhhs")
+region = Rect2(480, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yip4p"]
+atlas = ExtResource("2_8xhhs")
+region = Rect2(960, 0, 480, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_relkb"]
+atlas = ExtResource("2_8xhhs")
+region = Rect2(1440, 0, 480, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7c7bd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1adig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyfv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yip4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_relkb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0y56s"]
+radius = 145.116
+height = 350.417
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qth5q"]
+radius = 13.0
+height = 26.0
+
+[node name="Bullet" type="CharacterBody2D"]
+position = Vector2(17, 0)
+script = ExtResource("1_031gc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(11.75, -1.78122)
+scale = Vector2(0.078125, 0.0717449)
+sprite_frames = SubResource("SpriteFrames_7c7bd")
+autoplay = "default"
+frame_progress = 0.28187
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, -2)
+scale = Vector2(0.0895833, 0.0684898)
+shape = SubResource("CapsuleShape2D_0y56s")
+
+[node name="Area2D" type="Area2D" parent="." groups=["bullet"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12, -2)
+scale = Vector2(1.185, 1.185)
+shape = SubResource("CapsuleShape2D_qth5q")
+debug_color = Color(1, 0, 0.0823529, 0.419608)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

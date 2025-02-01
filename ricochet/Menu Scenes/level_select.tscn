@@ -51,7 +51,7 @@ layout_mode = 2
 focus_neighbor_right = NodePath("../DebugButton")
 text = "Return to Menu"
 
-[connection signal="pressed" from="GridContainer/DebugButton" to="GridContainer/DebugButton" method="_on_DebugButton_pressed"]
+[connection signal="pressed" from="GridContainer/DebugButton" to="." method="_on_debug_button_pressed"]
 [connection signal="pressed" from="GridContainer/FirstLevelButton" to="." method="_on_first_level_button_pressed"]
 [connection signal="pressed" from="GridContainer/SecondLevelButton" to="." method="_on_second_level_button_pressed"]
 [connection signal="pressed" from="GridContainer/ReturnButton" to="." method="_on_return_button_pressed"]
