@@ -1,6 +1,6 @@
 extends Control
 
-@onready var selectSound = $select
+#@onready var selectSound = $select
 
 # refer to https://www.youtube.com/watch?v=iGLoOTnKUBo
 
@@ -22,7 +22,7 @@ func SetPaused(value:bool) -> void:
 
 func _on_resume_pressed():
 	_isPaused = false
-	selectSound.play()
+#	selectSound.play()
 	await get_tree().create_timer(0.5).timeout
 
 func _on_htp_pressed():
@@ -30,11 +30,11 @@ func _on_htp_pressed():
 
 func _on_main_menu_pressed():
 	_isPaused = false;
-	selectSound.play()
+#	selectSound.play()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
+	get_tree().change_scene_to_file("res://Menu Scenes/Menu.tscn")
 
 func _on_quit_pressed():
-	selectSound.play()
+	#selectSound.play()
 	await get_tree().create_timer(0.5).timeout
 	get_tree().quit()

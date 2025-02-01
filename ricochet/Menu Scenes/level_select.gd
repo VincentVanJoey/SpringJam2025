@@ -12,11 +12,11 @@ func _on_second_level_button_pressed():
 	#MusicPlayer.queue_free()
 	#selectSound.play()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://Scenes/level_1.tscn")
+	get_tree().change_scene_to_file("res://Levels/level_1.tscn")
 
 
 func _on_return_button_pressed():
 	#MusicPlayer.queue_free()
 	#selectSound.play()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
+	get_tree().change_scene_to_file("res://Menu Scenes/Menu.tscn")

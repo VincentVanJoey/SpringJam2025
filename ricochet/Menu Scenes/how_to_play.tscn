@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bss26wfxidfm8"]
 
-[ext_resource type="Script" path="res://Scenes/how_to_play.gd" id="1_vglhc"]
+[ext_resource type="Script" path="res://Menu Scenes/how_to_play.gd" id="1_vglhc"]
 
 [node name="how_to_play" type="Control"]
 layout_mode = 3

@@ -8,12 +8,12 @@ func _ready():
 func _on_start_pressed(): # Starts the Game
 	#selectSound.play()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://Scenes/level_select.tscn")
+	get_tree().change_scene_to_file("res://Menu Scenes/level_select.tscn")
 	
 func _on_how_to_play_pressed(): # Shows the tutotrial/ how to play screen
 	#selectSound.play()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://Scenes/how_to_play.tscn") 
+	get_tree().change_scene_to_file("res://Menu Scenes/how_to_play.tscn") 
 
 func _on_quit_pressed(): # Quits the program
 	#selectSound.play()
