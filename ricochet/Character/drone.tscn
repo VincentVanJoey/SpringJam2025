@@ -1,8 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://thi17svak5nr"]
+[gd_scene load_steps=9 format=3 uid="uid://thi17svak5nr"]
 
 [ext_resource type="Script" path="res://Character/drone.gd" id="1_ru6ae"]
 [ext_resource type="PackedScene" uid="uid://1wr7k5ipce27" path="res://Character/Bullet.tscn" id="2_3pmg4"]
-[ext_resource type="Texture2D" uid="uid://bmyxe7fp1hop3" path="res://icon.svg" id="2_jo3fw"]
+[ext_resource type="Texture2D" uid="uid://cwjop73vjlkv" path="res://Art/drone.png" id="3_e3odr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3xuw"]
+atlas = ExtResource("3_e3odr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yov6b"]
+atlas = ExtResource("3_e3odr")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msopv"]
+atlas = ExtResource("3_e3odr")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ruij"]
+atlas = ExtResource("3_e3odr")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3b74f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3xuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yov6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msopv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ruij")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("next_button", "timer_label", "level_timer")]
 script = ExtResource("1_ru6ae")
@@ -11,10 +47,17 @@ next_button = NodePath("Button")
 timer_label = NodePath("timer_label")
 level_timer = NodePath("level_timer")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="CharacterBody2D" parent="."]
 position = Vector2(31.5, 32.5)
 scale = Vector2(0.507813, 0.492188)
-texture = ExtResource("2_jo3fw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+position = Vector2(0.984613, -1.01587)
+scale = Vector2(1.9, 1.84921)
+sprite_frames = SubResource("SpriteFrames_3b74f")
+autoplay = "default"
+frame_progress = 0.163354
+speed_scale = 3.0
 
 [node name="level_timer" type="Timer" parent="."]
 one_shot = true

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvjxfmbtyms16"]
+[gd_scene load_steps=4 format=3 uid="uid://cvjxfmbtyms16"]
 
 [ext_resource type="Script" path="res://Menu Scenes/Menu.gd" id="1_7mx1f"]
+[ext_resource type="Texture2D" uid="uid://dsgfi3gty6mh6" path="res://Art/cooltext475244694092764.png" id="2_thlv7"]
+
+[sub_resource type="Gradient" id="Gradient_1b74o"]
+offsets = PackedFloat32Array(0.111111, 0.298611, 0.461806, 0.645833, 0.972222)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.2, 0.913282, 0.913076, 0.624602, 1, 0.839216, 0.823529, 0, 0.4, 0.839216, 0.823529, 0, 0)
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -13,14 +18,17 @@ script = ExtResource("1_7mx1f")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 22.73
-offset_top = -206.165
-offset_right = 122.73
-offset_bottom = -105.165
-grow_vertical = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = 119.0
+offset_right = 8.99994
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1.865, 1.865)
 
 [node name="Start" type="Button" parent="VBoxContainer"]
@@ -36,6 +44,30 @@ text = "How to Play"
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../Start")
 text = "Quit"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 109.0
+offset_top = 144.0
+offset_right = 1080.0
+offset_bottom = 287.0
+texture = ExtResource("2_thlv7")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(539, 202)
+scale = Vector2(20, 20)
+amount = 100
+lifetime = 0.1
+speed_scale = 0.5
+local_coords = true
+draw_order = 1
+emission_shape = 2
+emission_sphere_radius = 36.83
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(1, 1, 1, 0.329412)
+color_ramp = SubResource("Gradient_1b74o")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/How To Play" to="." method="_on_how_to_play_pressed"]
