@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://poc2dpesicok"]
+[gd_scene load_steps=9 format=3 uid="uid://poc2dpesicok"]
 
+[ext_resource type="Script" path="res://Levels/hallway.gd" id="1_h4h0l"]
 [ext_resource type="PackedScene" uid="uid://cfqtm7nm6ngff" path="res://Character/Player.tscn" id="1_vulfy"]
 [ext_resource type="PackedScene" uid="uid://upl2f1wfsnce" path="res://Menu Scenes/pause_menu.tscn" id="2_d6dg0"]
 [ext_resource type="Shader" path="res://Levels/Hallway.gdshader" id="4_ebvoq"]
@@ -17,6 +18,7 @@ shader_parameter/speed = 1.0
 shader_parameter/scale = 1.0
 
 [node name="Hallway" type="Node2D"]
+script = ExtResource("1_h4h0l")
 
 [node name="PlayerGuy" parent="." instance=ExtResource("1_vulfy")]
 position = Vector2(272, 358)
@@ -56,9 +58,14 @@ offset_bottom = 159.0
 
 [node name="Bullet" parent="." instance=ExtResource("5_uawir")]
 position = Vector2(60, 387)
+rotation = -1.15192
 
 [node name="Bullet2" parent="." instance=ExtResource("5_uawir")]
 position = Vector2(59, 348)
+rotation = -1.15192
 
 [node name="Bullet3" parent="." instance=ExtResource("5_uawir")]
 position = Vector2(59, 308)
+rotation = -1.15192
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

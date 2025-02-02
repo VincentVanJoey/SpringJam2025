@@ -10,6 +10,8 @@ extends Node2D
 const SPEED = 500.0
 
 var parent = null
+var bullet_limit = 0
+var current_count = 0
 
 func _ready():
 	parent = get_node("..")
@@ -17,7 +19,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	current_count = 0
 	timer_label.text = format_time(level_timer.time_left)
+	
+	for child in parent.get_children():
+			if child.scene_file_path == bullet_scene.resource_path:
+				current_count += 1
+	
+	if current_count < bullet_limit:
+		fire_projectile(position)
 	
 	if level_timer.time_left == 0:
 		for child in parent.get_children():
@@ -27,40 +37,30 @@ func _process(_delta: float) -> void:
 		next_button.disabled = false
 
 func configure_level_type():
-	
-	#TODO - set timer for level
-	#TODO - figure out bullet pattern
-	#TODO - fire set amounts of bullets depending
-	#TODO - perform checks for time thresholds to change or shoot more
-	
 	# Detect the parent node (level)
 	if parent:
 		match parent.name:  # Assuming parent node names represent different levels
 			"Hexagon":
 				level_timer.wait_time = 60
 				level_timer.start()
-				fire_projectile(position)
+				bullet_limit = 3
 
 			"Pentagon":
 				level_timer.wait_time = 60
 				level_timer.start()
-				fire_projectile(position)
-				pass
+				bullet_limit = 3
 			"Square":
 				level_timer.wait_time = 60
 				level_timer.start()
-				fire_projectile(position)
-				pass
+				bullet_limit = 3
 			"Triangle" :
 				level_timer.wait_time = 60
 				level_timer.start()
-				fire_projectile(position)
-				pass
+				bullet_limit = 3
 			"Hallway" :
 				level_timer.wait_time = 60
 				level_timer.start()
-				fire_projectile(position)
-				pass
+				bullet_limit = 3
 			_: #default case
 				pass
 	else:
@@ -79,7 +79,6 @@ func format_time(input_time: float) -> String:
 	var seconds = int(input_time) % 60
 	return "%02d:%02d" % [minutes, seconds]
 
-
 func _on_button_pressed() -> void:
 	match parent.name:
 			"Hexagon":
@@ -90,8 +89,5 @@ func _on_button_pressed() -> void:
 				get_tree().change_scene_to_file("res://Levels/Triangle.tscn")
 			"Triangle" :
 				get_tree().change_scene_to_file("res://Levels/Hallway.tscn")
-			"Hallway" :
-				#TODO- victory
-				get_tree().change_scene_to_file("res://Levels/Hexagon.tscn")
-			_: #default case
+			_:
 				pass
