@@ -46,6 +46,7 @@ focus_neighbor_bottom = NodePath("../Start")
 text = "Quit"
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 109.0
 offset_top = 144.0
 offset_right = 1080.0
