@@ -1,18 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://thi17svak5nr"]
+[gd_scene load_steps=3 format=3 uid="uid://thi17svak5nr"]
 
 [ext_resource type="Script" path="res://Character/drone.gd" id="1_ru6ae"]
-[ext_resource type="PackedScene" uid="uid://1wr7k5ipce27" path="res://Character/Bullet.tscn" id="2_ep56r"]
 [ext_resource type="Texture2D" uid="uid://bmyxe7fp1hop3" path="res://icon.svg" id="2_jo3fw"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("timer_label", "level_timer")]
 script = ExtResource("1_ru6ae")
-projectile_scene = ExtResource("2_ep56r")
+timer_label = NodePath("timer_label")
+level_timer = NodePath("level_timer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(31.5, 32.5)
 scale = Vector2(0.507813, 0.492188)
 texture = ExtResource("2_jo3fw")
 
-[node name="fire_timer" type="Timer" parent="."]
+[node name="level_timer" type="Timer" parent="."]
 
-[connection signal="timeout" from="fire_timer" to="." method="_on_fire_timer_timeout"]
+[node name="timer_label" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 62.0
+offset_right = 52.0
+offset_bottom = 85.0
+text = "00:00"
