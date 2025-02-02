@@ -1,5 +1,4 @@
-extends Control
-#@onready var selectSound = $select
+extends Control#@onready var selectSound = $select
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
