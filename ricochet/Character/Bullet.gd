@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 var particle_system : CPUParticles2D
 
-const SPEED = 500.0
-var lower_speed = 500
+const SPEED = 500
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -32,7 +31,8 @@ func _physics_process(delta):
 	#handles grabbing collision data to delete it it hits something
 	var collisionResult = move_and_collide(direction * SPEED * delta)
 	if collisionResult != null:
-		queue_free()
+		direction = Vector2(cos(randf_range(180, 360)), sin(randf_range(180, 360)))
+
 
 # Reflect when hitting screen borders
 	if position.x <= 0 or position.x >= screen_size.x:
@@ -41,8 +41,10 @@ func _physics_process(delta):
 	if position.y <= 0 or position.y >= screen_size.y:
 		direction = Vector2(cos(randf_range(180, 360)), sin(randf_range(180, 360)))
 
-
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("player"):
 		print("hit")
 		queue_free()
+	if area.is_in_group("bullet"):
+		direction = Vector2(cos(randf_range(180, 360)), sin(randf_range(180, 360)))
+		print("bullet collision")
