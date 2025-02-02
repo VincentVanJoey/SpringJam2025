@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dujrqw5yjsruf"]
+[gd_scene load_steps=5 format=3 uid="uid://dujrqw5yjsruf"]
 
 [ext_resource type="PackedScene" uid="uid://cfqtm7nm6ngff" path="res://Character/Player.tscn" id="2_7g606"]
 [ext_resource type="PackedScene" uid="uid://upl2f1wfsnce" path="res://Menu Scenes/pause_menu.tscn" id="3_07ysp"]
@@ -7,10 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1sf2"]
 size = Vector2(1154, 22.75)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7ldq"]
-size = Vector2(1183, 59)
-
-[node name="Level" type="Node"]
+[node name="Level1" type="Node"]
 
 [node name="PlayerGuy" parent="." instance=ExtResource("2_7g606")]
 position = Vector2(762, 595)
@@ -18,7 +15,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(985, 197)
+position = Vector2(985, 199)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-409, 461.625)
@@ -28,39 +25,5 @@ shape = SubResource("RectangleShape2D_l1sf2")
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_07ysp")]
 
-[node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-296, 322)
-rotation = -0.825541
-scale = Vector2(0.7, 0.7)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(583.5, 640.5)
-shape = SubResource("RectangleShape2D_u7ldq")
-debug_color = Color(0.815686, 0.321569, 0.631373, 0.419608)
-
-[node name="ColorRect" type="ColorRect" parent="Floor"]
-offset_left = -10.0
-offset_top = 610.0
-offset_right = 1175.0
-offset_bottom = 665.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Floor2" type="StaticBody2D" parent="."]
-position = Vector2(747, 925)
-rotation = -2.28289
-scale = Vector2(0.7, 0.7)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
-position = Vector2(583.5, 640.5)
-shape = SubResource("RectangleShape2D_u7ldq")
-debug_color = Color(0.815686, 0.321569, 0.631373, 0.419608)
-
-[node name="ColorRect" type="ColorRect" parent="Floor2"]
-offset_left = -10.0
-offset_top = 610.0
-offset_right = 1175.0
-offset_bottom = 665.0
-metadata/_edit_use_anchors_ = true
-
 [node name="Node2D" parent="." instance=ExtResource("3_fh615")]
-position = Vector2(542, 89)
+position = Vector2(101, 125)
