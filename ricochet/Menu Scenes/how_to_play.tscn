@@ -22,10 +22,8 @@ offset_left = 3.0
 offset_top = 32.0
 offset_right = 171.0
 offset_bottom = 162.0
-text = "Movement - Left Stick
-Aim - Right Stick
-Shoot - B/Triggers
-Jump - X/Y
-Pause - Start"
+text = "Movement - WASD
+Jump - Space
+Pause - ESC"
 
 [connection signal="pressed" from="GridContainer/ReturnButton" to="." method="_on_return_button_pressed"]
