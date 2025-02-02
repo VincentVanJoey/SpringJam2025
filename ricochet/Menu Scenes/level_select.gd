@@ -16,12 +16,8 @@ func _on_first_level_button_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_second_level_button_pressed():
-	#MusicPlayer.queue_free()
-	#selectSound.play()s
-	#MusicPlayer.queue_free()
-	#selectSound.play()
-	#await get_tree().create_timer(0.5).timeout
-	#get_tree().change_scene_to_file("res://Levels/level_1.tscn")
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://Levels/Hallway.tscn")
 	pass # Replace with function body.
 
 func _on_return_button_pressed():

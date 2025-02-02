@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://byil44k1tk1g3"]
+
+[ext_resource type="PackedScene" uid="uid://cfqtm7nm6ngff" path="res://Character/Player.tscn" id="1_kp2ck"]
+[ext_resource type="PackedScene" uid="uid://upl2f1wfsnce" path="res://Menu Scenes/pause_menu.tscn" id="2_4nnns"]
+[ext_resource type="PackedScene" uid="uid://thi17svak5nr" path="res://Character/drone.tscn" id="3_vqnxn"]
+[ext_resource type="PackedScene" uid="uid://cl1gou8kshkq2" path="res://Levels/Line.tscn" id="4_6usb2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3inr3"]
+size = Vector2(1154, 22.75)
+
+[node name="Pentagon" type="Node2D"]
+
+[node name="PlayerGuy" parent="." instance=ExtResource("1_kp2ck")]
+position = Vector2(582, 579)
+collision_layer = 3
+collision_mask = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(985, 199)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-409, 461.625)
+shape = SubResource("RectangleShape2D_3inr3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_4nnns")]
+
+[node name="Node2D" parent="." instance=ExtResource("3_vqnxn")]
+position = Vector2(486, 69)
+
+[node name="Line" parent="." instance=ExtResource("4_6usb2")]
+position = Vector2(993, 176)
+rotation = 1.88496
+scale = Vector2(0.75, 0.75)
+
+[node name="Line2" parent="." instance=ExtResource("4_6usb2")]
+position = Vector2(346, 1158)
+rotation = -1.88496
+scale = Vector2(0.75, 0.75)
+
+[node name="Line3" parent="." instance=ExtResource("4_6usb2")]
+position = Vector2(448, -283)
+rotation = 0.942478
+scale = Vector2(0.75, 0.75)
+
+[node name="Line4" parent="." instance=ExtResource("4_6usb2")]
+position = Vector2(-32, 549)
+rotation = -0.942478
+scale = Vector2(0.75, 0.75)
+
+[node name="Line5" parent="." instance=ExtResource("4_6usb2")]
+position = Vector2(1143, 795)
+rotation = 3.14159
+scale = Vector2(0.9375, 0.9375)

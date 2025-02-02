@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvmsdsfr6pvo1"]
+
+[ext_resource type="PackedScene" uid="uid://cfqtm7nm6ngff" path="res://Character/Player.tscn" id="1_6fbi8"]
+[ext_resource type="PackedScene" uid="uid://upl2f1wfsnce" path="res://Menu Scenes/pause_menu.tscn" id="2_ubvqf"]
+[ext_resource type="PackedScene" uid="uid://thi17svak5nr" path="res://Character/drone.tscn" id="3_f3oxg"]
+[ext_resource type="PackedScene" uid="uid://cl1gou8kshkq2" path="res://Levels/Line.tscn" id="4_dl1uf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnu0i"]
+size = Vector2(1154, 22.75)
+
+[node name="Triangle" type="Node2D"]
+
+[node name="PlayerGuy" parent="." instance=ExtResource("1_6fbi8")]
+position = Vector2(582, 579)
+collision_layer = 3
+collision_mask = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(985, 199)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-409, 461.625)
+shape = SubResource("RectangleShape2D_gnu0i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_ubvqf")]
+
+[node name="Node2D" parent="." instance=ExtResource("3_f3oxg")]
+position = Vector2(541, 175)
+
+[node name="Line" parent="." instance=ExtResource("4_dl1uf")]
+position = Vector2(-123, 474)
+
+[node name="Line2" parent="." instance=ExtResource("4_dl1uf")]
+position = Vector2(516, -318)
+rotation = 1.0472
+
+[node name="Line3" parent="." instance=ExtResource("4_dl1uf")]
+position = Vector2(-75, 871)
+rotation = -1.0472
