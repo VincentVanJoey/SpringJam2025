@@ -20,8 +20,6 @@ func _process(_delta: float) -> void:
 	
 	if level_timer.time_left == 0:
 		print("over")
-	
-	pass
 
 func configure_level_type():
 	
@@ -55,7 +53,7 @@ func fire_projectile(bul_position: Vector2):
 		projectile.velocity = Vector2.LEFT * 500 
 		get_parent().add_child.call_deferred(projectile)  # Add projectile to the level scene
 
-func format_time(seconds: float) -> String:
-	var minutes = int(seconds) / 60
-	var remaining_seconds = int(seconds) % 60
-	return "%02d:%02d" % [minutes, remaining_seconds]
+func format_time(input_time: float) -> String:
+	var minutes = int(input_time) / 60
+	var seconds = int(input_time) % 60
+	return "%02d:%02d" % [minutes, seconds]
