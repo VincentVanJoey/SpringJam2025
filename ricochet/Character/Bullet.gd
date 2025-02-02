@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var particle_system : CPUParticles2D
+
 const SPEED = 500.0
 var lower_speed = 500
 
@@ -9,6 +11,7 @@ var direction : Vector2
 
 func _ready():
 	direction = Vector2(1,0).rotated(rotation)
+	particle_system = $CPUParticles2D
 
 func _physics_process(delta):
 	
@@ -17,9 +20,11 @@ func _physics_process(delta):
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
+	# Bullet Particle Direction Changes (could be optimized by placing in reflect if statements
+	particle_system.set_gravity(Vector2(-velocity.x, -velocity.y)) 
+	
 	# Add the gravity.
 	velocity = SPEED * direction
-	
 	
 	if not is_on_floor():
 		velocity.y += gravity * 1 * delta # might have to tweak value 1 here
@@ -32,7 +37,7 @@ func _physics_process(delta):
 # Reflect when hitting screen borders
 	if position.x <= 0 or position.x >= screen_size.x:
 		direction = Vector2(cos(randf_range(180, 360)), sin(randf_range(180, 360)))
-
+		
 	if position.y <= 0 or position.y >= screen_size.y:
 		direction = Vector2(cos(randf_range(180, 360)), sin(randf_range(180, 360)))
 
