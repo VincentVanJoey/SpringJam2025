@@ -3,11 +3,11 @@ extends CharacterBody2D
 @export var SPEED : float = 300.0
 @export var JUMP_VELOCITY : float = -600.0
 @export var playerindex = 1;
+@export var health = 3;
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 #@onready var fireballSound = $fireball
 #@onready var jumpSound = $jump
-#@export var bullet :PackedScene
-#@export var time_to_shoot = 0.3
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") # Get the gravity from the project settings to be synced with RigidBody nodes.
 var animation_locked: bool = false
@@ -94,6 +94,18 @@ func _on_animated_sprite_2d_animation_finished():
 	if(animated_sprite.animation == "fall"):
 		animation_locked = false
 #endregion
+
+func flash_damage():
+	animated_sprite.modulate = Color(1, 0, 0)  # Red flash
+	await get_tree().create_timer(.1).timeout
+	animated_sprite.modulate = Color(1, 1, 1)  # Reset to normal
+
+func _on_hurtbox_area_entered(area):
+	if area.is_in_group("bullet"):
+			flash_damage()
+			health -= 1
+			if health < 1:
+				get_tree().change_scene_to_file("res://Menu Scenes/game_over.tscn")
 
 #delete these - TODO
 #region ------------------UNUSED--------------------------
