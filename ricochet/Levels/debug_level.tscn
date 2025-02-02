@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx6syhis2mwhg"]
+[gd_scene load_steps=7 format=3 uid="uid://bx6syhis2mwhg"]
 
 [ext_resource type="PackedScene" uid="uid://cfqtm7nm6ngff" path="res://Character/Player.tscn" id="1_3ij2m"]
+[ext_resource type="Script" path="res://Levels/debug_level.gd" id="1_xgkm1"]
 [ext_resource type="PackedScene" uid="uid://1wr7k5ipce27" path="res://Character/Bullet.tscn" id="3_cif21"]
 [ext_resource type="PackedScene" uid="uid://upl2f1wfsnce" path="res://Menu Scenes/pause_menu.tscn" id="3_e8lw2"]
 
@@ -10,9 +11,10 @@ size = Vector2(1513, 275.5)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hrv50"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_xgkm1")
 
 [node name="PlayerGuy" parent="." instance=ExtResource("1_3ij2m")]
-position = Vector2(1002, 592)
+position = Vector2(679, 602)
 collision_layer = 3
 collision_mask = 3
 
@@ -33,7 +35,7 @@ texture = SubResource("PlaceholderTexture2D_hrv50")
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_e8lw2")]
 
 [node name="Bullet" parent="." instance=ExtResource("3_cif21")]
-position = Vector2(167, 521)
+position = Vector2(-40, 588)
 scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 2
