@@ -11,6 +11,8 @@ func _on_debug_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Levels/debug_level.tscn")
 
 func _on_first_level_button_pressed() -> void:
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://Levels/triangle.tscn")
 	pass # Replace with function body.
 
 func _on_second_level_button_pressed():
