@@ -41,24 +41,23 @@ func configure_level_type():
 	if parent:
 		match parent.name:  # Assuming parent node names represent different levels
 			"Hexagon":
-				level_timer.wait_time = 60
+				level_timer.wait_time = 10
 				level_timer.start()
-				bullet_limit = 3
-
+				bullet_limit = 7
 			"Pentagon":
-				level_timer.wait_time = 60
+				level_timer.wait_time = 20
 				level_timer.start()
-				bullet_limit = 3
+				bullet_limit = 5
 			"Square":
-				level_timer.wait_time = 60
+				level_timer.wait_time = 20
 				level_timer.start()
-				bullet_limit = 3
+				bullet_limit = 5
 			"Triangle" :
-				level_timer.wait_time = 60
+				level_timer.wait_time = 20
 				level_timer.start()
 				bullet_limit = 3
 			"Hallway" :
-				level_timer.wait_time = 60
+				level_timer.wait_time = 20
 				level_timer.start()
 				bullet_limit = 3
 			_: #default case

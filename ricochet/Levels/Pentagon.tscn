@@ -27,7 +27,7 @@ shape = SubResource("RectangleShape2D_3inr3")
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_4nnns")]
 
 [node name="Node2D" parent="." instance=ExtResource("3_vqnxn")]
-position = Vector2(486, 69)
+position = Vector2(490, 98)
 
 [node name="Line" parent="." instance=ExtResource("4_6usb2")]
 position = Vector2(993, 176)

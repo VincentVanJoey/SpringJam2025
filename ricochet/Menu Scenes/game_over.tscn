@@ -48,7 +48,7 @@ size_flags_stretch_ratio = 0.0
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
-text = "Restart"
+text = "Menu"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
