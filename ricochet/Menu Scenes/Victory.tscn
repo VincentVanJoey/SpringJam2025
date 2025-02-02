@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7cy0f81r0vq8"]
+
+[ext_resource type="Texture2D" uid="uid://wg3umedjtw2w" path="res://Art/you win text.png" id="1_s1g5d"]
+
+[node name="Victory" type="Node2D"]
+
+[node name="MainMenu" type="Button" parent="."]
+offset_left = 577.0
+offset_top = 503.0
+offset_right = 673.0
+offset_bottom = 534.0
+text = "Main Menu
+"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 561.0
+offset_top = 541.0
+offset_right = 691.0
+offset_bottom = 572.0
+focus_neighbor_bottom = NodePath("../Resume")
+text = "Quit to Desktop
+"
+
+[node name="YouWinText" type="Sprite2D" parent="."]
+position = Vector2(631, 231)
+texture = ExtResource("1_s1g5d")
