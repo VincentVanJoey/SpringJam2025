@@ -9,4 +9,4 @@ func _ready():
 func _on_return_button_pressed():
 	#selectSound.play()
 	await get_tree().create_timer(0.5).timeout
-	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
+	get_tree().change_scene_to_file("res://Menu Scenes/Menu.tscn")

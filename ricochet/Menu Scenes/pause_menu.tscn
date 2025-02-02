@@ -52,10 +52,6 @@ focus_neighbor_top = NodePath("../Quit")
 text = "Resume
 "
 
-[node name="HTP" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-text = "How To Play"
-
 [node name="MainMenu" type="Button" parent="Panel/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu
@@ -68,6 +64,5 @@ text = "Quit to Desktop
 "
 
 [connection signal="pressed" from="Panel/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/HTP" to="." method="_on_htp_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

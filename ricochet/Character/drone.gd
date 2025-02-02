@@ -27,7 +27,8 @@ func _process(_delta: float) -> void:
 				current_count += 1
 	
 	if current_count < bullet_limit:
-		fire_projectile(position)
+		fire_projectile(position + Vector2(randf(),randf()))
+		await 0.5
 	
 	if level_timer.time_left == 0:
 		for child in parent.get_children():
@@ -45,19 +46,19 @@ func configure_level_type():
 				level_timer.start()
 				bullet_limit = 7
 			"Pentagon":
-				level_timer.wait_time = 20
+				level_timer.wait_time = 15
 				level_timer.start()
-				bullet_limit = 5
+				bullet_limit = 3
 			"Square":
-				level_timer.wait_time = 20
+				level_timer.wait_time = 12
 				level_timer.start()
 				bullet_limit = 5
 			"Triangle" :
-				level_timer.wait_time = 20
+				level_timer.wait_time = 9
 				level_timer.start()
 				bullet_limit = 3
 			"Hallway" :
-				level_timer.wait_time = 20
+				level_timer.wait_time = 5
 				level_timer.start()
 				bullet_limit = 3
 			_: #default case
