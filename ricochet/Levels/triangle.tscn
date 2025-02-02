@@ -28,7 +28,7 @@ shape = SubResource("RectangleShape2D_l1sf2")
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_07ysp")]
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(-205, 515)
+position = Vector2(-277, 1557)
 rotation = -1.19206
 scale = Vector2(0.7, 0.7)
 
@@ -45,7 +45,7 @@ offset_bottom = 665.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Floor2" type="StaticBody2D" parent="."]
-position = Vector2(472, 845)
+position = Vector2(773, 1891)
 rotation = -2.00713
 scale = Vector2(0.7, 0.7)
 
