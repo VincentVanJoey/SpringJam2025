@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED : float = 300.0
+@export var SPEED : float = 450.0
 @export var JUMP_VELOCITY : float = -600.0
 @export var playerindex = 1;
 @export var health = 3;
@@ -41,6 +41,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump_%s" % [playerindex]) and is_on_floor(): # Handle Jump.
 		jump()
 		
+	if Input.is_action_just_pressed("debug"): # Handle Jump.
+		get_tree().change_scene_to_file("res://Menu Scenes/level_select.tscn") 
+	
 	if velocity.y > 0 and !animation_locked:
 		land()
 
