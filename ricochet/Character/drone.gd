@@ -1,7 +1,8 @@
 extends Node2D
 
 # Declare the projectile scene
-@export var bullet_scene: PackedScene
+@export var bullet_scene : PackedScene
+@export var next_button : Button
 @export var timer_label : Label
 @export var level_timer : Timer
 @export var projectile_speed: float = 500.0  # Speed of the projectiles
@@ -19,7 +20,11 @@ func _process(_delta: float) -> void:
 	timer_label.text = format_time(level_timer.time_left)
 	
 	if level_timer.time_left == 0:
-		print("over")
+		for child in parent.get_children():
+			if child.scene_file_path == bullet_scene.resource_path:
+				child.queue_free()
+		next_button.visible = true
+		next_button.disabled = false
 
 func configure_level_type():
 	
@@ -31,14 +36,30 @@ func configure_level_type():
 	# Detect the parent node (level)
 	if parent:
 		match parent.name:  # Assuming parent node names represent different levels
-			"Level1":
+			"Hexagon":
+				level_timer.wait_time = 60
+				level_timer.start()
+				fire_projectile(position)
+
+			"Pentagon":
 				level_timer.wait_time = 60
 				level_timer.start()
 				fire_projectile(position)
 				pass
-			"Level2":
+			"Square":
+				level_timer.wait_time = 60
+				level_timer.start()
+				fire_projectile(position)
 				pass
-			"Level3":
+			"Triangle" :
+				level_timer.wait_time = 60
+				level_timer.start()
+				fire_projectile(position)
+				pass
+			"Hallway" :
+				level_timer.wait_time = 60
+				level_timer.start()
+				fire_projectile(position)
 				pass
 			_: #default case
 				pass
@@ -57,3 +78,20 @@ func format_time(input_time: float) -> String:
 	var minutes = int(input_time) / 60
 	var seconds = int(input_time) % 60
 	return "%02d:%02d" % [minutes, seconds]
+
+
+func _on_button_pressed() -> void:
+	match parent.name:
+			"Hexagon":
+				get_tree().change_scene_to_file("res://Levels/Pentagon.tscn")
+			"Pentagon":
+				get_tree().change_scene_to_file("res://Levels/Square.tscn")
+			"Square":
+				get_tree().change_scene_to_file("res://Levels/Triangle.tscn")
+			"Triangle" :
+				get_tree().change_scene_to_file("res://Levels/Hallway.tscn")
+			"Hallway" :
+				#TODO- victory
+				get_tree().change_scene_to_file("res://Levels/Hexagon.tscn")
+			_: #default case
+				pass

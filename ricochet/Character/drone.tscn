@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://1wr7k5ipce27" path="res://Character/Bullet.tscn" id="2_3pmg4"]
 [ext_resource type="Texture2D" uid="uid://bmyxe7fp1hop3" path="res://icon.svg" id="2_jo3fw"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("timer_label", "level_timer")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("next_button", "timer_label", "level_timer")]
 script = ExtResource("1_ru6ae")
 bullet_scene = ExtResource("2_3pmg4")
+next_button = NodePath("Button")
 timer_label = NodePath("timer_label")
 level_timer = NodePath("level_timer")
 
@@ -24,3 +25,14 @@ offset_top = 62.0
 offset_right = 52.0
 offset_bottom = 85.0
 text = "00:00"
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 113.0
+offset_top = 6.0
+offset_right = 280.0
+offset_bottom = 70.0
+disabled = true
+text = "--> Continue -->"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
