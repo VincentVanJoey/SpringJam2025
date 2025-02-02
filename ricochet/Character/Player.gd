@@ -21,9 +21,9 @@ var jumped : bool = false
 #colors the players - TODO
 func _ready(): 
 	pass
-	match playerindex:
-		1: modulate = Color(0,0,0)
-		2: modulate = Color(0,0,0)
+	#match playerindex:
+		#1: modulate = Color(0,0,0)
+		#2: modulate = Color(0,0,0)
 
 #Refactor - TODO
 func _physics_process(delta):
@@ -93,7 +93,6 @@ func update_facing_direction():
 func _on_animated_sprite_2d_animation_finished():
 	if(animated_sprite.animation == "fall"):
 		animation_locked = false
-		
 #endregion
 
 #delete these - TODO

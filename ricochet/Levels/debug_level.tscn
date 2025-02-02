@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx6syhis2mwhg"]
+[gd_scene load_steps=6 format=3 uid="uid://bx6syhis2mwhg"]
 
 [ext_resource type="PackedScene" uid="uid://cfqtm7nm6ngff" path="res://Character/Player.tscn" id="1_3ij2m"]
+[ext_resource type="PackedScene" uid="uid://1wr7k5ipce27" path="res://Character/Bullet.tscn" id="3_cif21"]
 [ext_resource type="PackedScene" uid="uid://upl2f1wfsnce" path="res://Menu Scenes/pause_menu.tscn" id="3_e8lw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1sf2"]
@@ -11,29 +12,28 @@ size = Vector2(1513, 275.5)
 [node name="Level" type="Node2D"]
 
 [node name="PlayerGuy" parent="." instance=ExtResource("1_3ij2m")]
-position = Vector2(319, 478)
+position = Vector2(1002, 592)
+collision_layer = 3
+collision_mask = 3
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-21, 83)
+position = Vector2(985, 197)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-304, 595)
 shape = SubResource("RectangleShape2D_l1sf2")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
-position = Vector2(113, 18)
+position = Vector2(-43, 14)
 scale = Vector2(1596, 305)
-texture = SubResource("PlaceholderTexture2D_hrv50")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1357, 604)
-shape = SubResource("RectangleShape2D_l1sf2")
-
-[node name="Sprite2D2" type="Sprite2D" parent="StaticBody2D/CollisionShape2D2"]
-position = Vector2(9, 9)
-scale = Vector2(1555.44, 305)
 texture = SubResource("PlaceholderTexture2D_hrv50")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("3_e8lw2")]
+
+[node name="Bullet" parent="." instance=ExtResource("3_cif21")]
+position = Vector2(167, 521)
+scale = Vector2(2, 2)
+collision_layer = 2
+collision_mask = 2

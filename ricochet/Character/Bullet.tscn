@@ -1,43 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://1wr7k5ipce27"]
+[gd_scene load_steps=5 format=3 uid="uid://1wr7k5ipce27"]
 
 [ext_resource type="Script" path="res://Character/Bullet.gd" id="1_031gc"]
-[ext_resource type="Texture2D" uid="uid://bhnbo7em43msi" path="res://Art/blue-projectile.png" id="2_8xhhs"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1adig"]
-atlas = ExtResource("2_8xhhs")
-region = Rect2(0, 0, 480, 480)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iyfv3"]
-atlas = ExtResource("2_8xhhs")
-region = Rect2(480, 0, 480, 480)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yip4p"]
-atlas = ExtResource("2_8xhhs")
-region = Rect2(960, 0, 480, 480)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_relkb"]
-atlas = ExtResource("2_8xhhs")
-region = Rect2(1440, 0, 480, 480)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7c7bd"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1adig")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iyfv3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yip4p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_relkb")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
+[sub_resource type="Gradient" id="Gradient_scanm"]
+offsets = PackedFloat32Array(0.111111, 0.298611, 0.461806, 0.645833, 0.972222)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 0.913282, 0.913076, 0.624602, 1, 0.840555, 0.821892, 1.15514e-06, 1, 0.839216, 0.823529, 0, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0y56s"]
 radius = 145.116
@@ -51,21 +18,31 @@ height = 26.0
 position = Vector2(17, 0)
 script = ExtResource("1_031gc")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(11.75, -1.78122)
-scale = Vector2(0.078125, 0.0717449)
-sprite_frames = SubResource("SpriteFrames_7c7bd")
-autoplay = "default"
-frame_progress = 0.28187
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(12, -1)
+amount = 1500
+lifetime = 0.3
+speed_scale = 0.5
+local_coords = true
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 9.34
+gravity = Vector2(-500, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_scanm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(12, -2)
 scale = Vector2(0.0895833, 0.0684898)
 shape = SubResource("CapsuleShape2D_0y56s")
 
 [node name="Area2D" type="Area2D" parent="." groups=["bullet"]]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(12, -2)
 scale = Vector2(1.185, 1.185)
 shape = SubResource("CapsuleShape2D_qth5q")
