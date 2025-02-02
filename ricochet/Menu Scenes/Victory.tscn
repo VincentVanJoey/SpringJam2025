@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cht4l85kj835e"]
+[gd_scene load_steps=19 format=3 uid="uid://c7cy0f81r0vq8"]
 
 [ext_resource type="Script" path="res://Menu Scenes/victory.gd" id="1_0513m"]
 [ext_resource type="Texture2D" uid="uid://wg3umedjtw2w" path="res://Art/you win text.png" id="1_s1g5d"]
@@ -131,7 +131,7 @@ text = "Quit to Desktop
 "
 
 [node name="YouWinText" type="Sprite2D" parent="."]
-position = Vector2(631, 231)
+position = Vector2(623, 182)
 texture = ExtResource("1_s1g5d")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -144,6 +144,13 @@ scale = Vector2(4.66667, 4.66667)
 sprite_frames = SubResource("SpriteFrames_4fpi2")
 autoplay = "default"
 speed_scale = 2.0
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = 501.0
+offset_top = 272.0
+offset_right = 684.0
+offset_bottom = 312.0
+text = "Score: "
 
 [connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -105,6 +105,8 @@ func flash_damage():
 
 func _on_hurtbox_area_entered(area):
 	if area.is_in_group("bullet"):
+			Globals.lives_used += 1
+			print(Globals.lives_used)
 			flash_damage()
 			health -= 1
 			if health < 1:

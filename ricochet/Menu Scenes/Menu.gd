@@ -9,6 +9,7 @@ func _on_start_pressed(): # Starts the Game
 	#selectSound.play()
 	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://Levels/Hexagon.tscn")
+	Globals.lives_used = 0
 	
 func _on_how_to_play_pressed(): # Shows the tutotrial/ how to play screen
 	#selectSound.play()
