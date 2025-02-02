@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 #@onready var fireballSound = $fireball
-#@onready var jumpSound = $jump
+@onready var jumpSound = $JumpStreamPlayer
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") # Get the gravity from the project settings to be synced with RigidBody nodes.
 var animation_locked: bool = false
@@ -63,7 +63,7 @@ func _horizontalMove():
 
 func jump():
 	velocity.y = JUMP_VELOCITY
-	#jumpSound.play()
+	jumpSound.play()  # Play the sound
 	animated_sprite.play("jump")
 	animation_locked = true
 	
