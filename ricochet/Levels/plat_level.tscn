@@ -1,12 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4kfdft4fnbgq"]
+[gd_scene load_steps=6 format=3 uid="uid://c4kfdft4fnbgq"]
 
-[ext_resource type="Script" path="res://Scenes/level_2.gd" id="1_8pdim"]
-[ext_resource type="PackedScene" uid="uid://bd3ep03g4ey0c" path="res://Character/Player.tscn" id="1_t8rmg"]
-[ext_resource type="PackedScene" uid="uid://1wr7k5ipce27" path="res://Character/Bullet.tscn" id="2_ikcqb"]
-[ext_resource type="PackedScene" uid="uid://upl2f1wfsnce" path="res://Scenes/pause_menu.tscn" id="3_afe08"]
-[ext_resource type="Texture2D" uid="uid://0q8spngg61hu" path="res://Art/New Platform.png" id="4_hik45"]
-[ext_resource type="AudioStream" uid="uid://vvdhhqctiwnp" path="res://Music/FIGHTING_START.wav" id="6_5lw1w"]
-[ext_resource type="AudioStream" uid="uid://bdt2g6x7001ia" path="res://Music/FIGHTING.wav" id="7_qtmkn"]
+[ext_resource type="PackedScene" uid="uid://cfqtm7nm6ngff" path="res://Character/Player.tscn" id="1_t8rmg"]
+[ext_resource type="PackedScene" uid="uid://upl2f1wfsnce" path="res://Menu Scenes/pause_menu.tscn" id="3_afe08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ymiad"]
 size = Vector2(1183, 59)
@@ -18,15 +13,12 @@ size = Vector2(20, 625)
 size = Vector2(534.5, 3)
 
 [node name="level_2" type="Node2D"]
-script = ExtResource("1_8pdim")
 
 [node name="PlayerGuy" parent="." instance=ExtResource("1_t8rmg")]
 position = Vector2(173, 550)
-bullet = ExtResource("2_ikcqb")
 
 [node name="PlayerGuy2" parent="." instance=ExtResource("1_t8rmg")]
 position = Vector2(991, 550)
-bullet = ExtResource("2_ikcqb")
 playerindex = 2
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -88,7 +80,6 @@ metadata/_edit_use_anchors_ = true
 z_index = -1
 position = Vector2(581, 472)
 scale = Vector2(1.08, 0.18)
-texture = ExtResource("4_hik45")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(582.75, 459.5)
@@ -96,7 +87,5 @@ shape = SubResource("RectangleShape2D_1vg4p")
 one_way_collision = true
 
 [node name="FIGHTING_start" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_5lw1w")
 
 [node name="FIGHTING" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_qtmkn")
